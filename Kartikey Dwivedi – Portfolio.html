@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kartikey Dwivedi – Computer Science Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --ink:#0f1f1a; --text:#2c3733; --muted:#627069; --line:#dde3de;
+  --accent:#17795a; --accent-soft:#dcefe7; --term:#0f1a16; --term-text:#cfe8dc;
+  --shadow:0 1px 2px rgba(15,31,26,.06),0 10px 28px rgba(15,31,26,.07);
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1311; --surface:#161d1a; --ink:#eef3f0; --text:#cfd8d3; --muted:#92a09a; --line:#26302c;
+    --accent:#4fc79b; --accent-soft:#16282a; --term:#0a0f0d; --term-text:#cfe8dc;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1311; --surface:#161d1a; --ink:#eef3f0; --text:#cfd8d3; --muted:#92a09a; --line:#26302c;
+  --accent:#4fc79b; --accent-soft:#16282a; --term:#0a0f0d; --term-text:#cfe8dc;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,Arial,sans-serif;color:var(--ink);margin:0;letter-spacing:-.3px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:11}
+
+/* nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:62px;gap:16px}
+.brand{font-family:"Space Grotesk",sans-serif;font-weight:700;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.mark{width:32px;height:32px;border-radius:8px;background:var(--accent);color:var(--bg);display:grid;place-items:center;font-size:.8rem;font-weight:700}
+nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px;white-space:nowrap;transition:.2s}
+nav a:hover,nav a.on{color:var(--ink);background:var(--accent-soft)}
+
+/* hero */
+.hero{padding:72px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.tag-line{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:5px 14px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:3.5rem;line-height:1.05;margin-bottom:14px}
+.hero h1 span{color:var(--accent)}
+.role{font-size:1.15rem;color:var(--ink);font-weight:500;margin:0 0 10px}
+.lead{color:var(--muted);max-width:520px;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;border:1.5px solid var(--ink);color:var(--ink);transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.fill{background:var(--ink);color:var(--bg)}
+
+/* terminal */
+.term{background:var(--term);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.07)}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#3c4a44}
+.term-bar span{margin-left:8px;font-size:12px;color:#7f948a}
+.term-body{padding:20px;font-size:13.5px;line-height:1.85;color:var(--term-text);min-height:230px}
+.term-body .p{color:#4fc79b}
+.term-body .w{color:#f0b35a}
+.term-body .d{color:#7f948a}
+.cursor{display:inline-block;width:8px;height:15px;background:#4fc79b;vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.stat{padding:20px 22px}
+.stat strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:1.9rem;color:var(--ink);line-height:1.1}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* sections */
+section{padding:84px 0 0}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+h2{font-size:2.1rem;margin-bottom:30px}
+.about p{max-width:720px;margin:0;font-size:1.05rem}
+
+.timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:30px}
+.t-item{position:relative;margin-bottom:28px}
+.t-item:last-child{margin-bottom:0}
+.t-item::before{content:"";position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.when{font-size:13px;font-weight:600;color:var(--accent)}
+.t-item h3{font-size:1.2rem;margin:2px 0}
+.t-item p{margin:0;color:var(--muted);font-size:15px}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill{padding:24px}
+.skill h3{font-size:1rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--accent-soft);color:var(--ink);font-size:13px;font-weight:500;padding:5px 12px;border-radius:8px}
+.chip.m{font-family:"JetBrains Mono",monospace;font-size:12.5px}
+
+.project{padding:32px;margin-bottom:20px;position:relative;overflow:hidden;transition:.25s}
+.project::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
+.project:hover{transform:translateY(-4px)}
+.p-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.p-head h3{font-size:1.4rem}
+.p-num{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted)}
+.project p{margin:14px 0 0}
+code{font-family:"JetBrains Mono",monospace;font-size:.88em;background:var(--accent-soft);padding:2px 6px;border-radius:5px}
+
+.clubs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.club{padding:24px}
+.club .ic{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:"Space Grotesk",sans-serif;font-weight:700;margin-bottom:14px}
+.club h3{font-size:1.05rem;margin-bottom:6px}
+.club p{margin:0;font-size:14.5px;color:var(--muted)}
+
+.contact-box{padding:46px;text-align:center;background:var(--term);border-color:var(--term)}
+.contact-box h2{color:#eef3f0;margin-bottom:10px}
+.contact-box p{color:#a9bbb2;max-width:520px;margin:0 auto 26px}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.contact-links a{color:#eef3f0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:11px 18px;border-radius:10px;text-decoration:none;font-size:14.5px;font-weight:500;transition:.2s}
+.contact-links a:hover{background:var(--accent);border-color:var(--accent);color:#06130e}
+footer{padding:36px 0 44px;text-align:center;color:var(--muted);font-size:14px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.cursor{animation:none}html{scroll-behavior:auto}}
+
+@media (max-width:860px){
+  .hero{padding-top:44px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .hero h1{font-size:2.7rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .skills,.clubs{grid-template-columns:1fr}
+  section{padding-top:64px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .brand .n{display:none}
+  .project{padding:24px 22px}
+  h2{font-size:1.7rem}
+  .contact-box{padding:32px 20px}
+  .term-body{font-size:12.5px;padding:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">KD</span><span class="n">Kartikey Dwivedi</span></a>
+    <nav id="nav">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#activities">Activities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="tag-line">Indore, Madhya Pradesh</div>
+        <h1>Kartikey<br><span>Dwivedi</span></h1>
+        <p class="role">Computer Science Engineering Student</p>
+        <p class="lead">Motivated B.Tech student with foundational knowledge in C programming and software engineering principles, looking to apply my skills on practical technology projects.</p>
+        <div class="btns">
+          <a class="btn fill" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <div class="term mono" aria-hidden="true">
+        <div class="term-bar"><i></i><i></i><i></i><span>smartshell</span></div>
+        <div class="term-body">
+          <div><span class="p">smartshell&gt;</span> ls | grep project</div>
+          <div class="d">smartshell.c</div>
+          <div class="d">prd-solutions/</div>
+          <div><span class="p">smartshell&gt;</span> rm -rf /</div>
+          <div class="w">warning: potentially dangerous command</div>
+          <div><span class="p">smartshell&gt;</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="card stat"><strong>2028</strong><span>Expected graduation</span></div>
+      <div class="card stat"><strong>2</strong><span>Projects built</span></div>
+      <div class="card stat"><strong>3</strong><span>Active club memberships</span></div>
+      <div class="card stat"><strong>89%</strong><span>Class X percentage</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="about" class="about reveal">
+      <div class="eyebrow">About</div>
+      <h2>I like working close to the system</h2>
+      <p>I’m pursuing a Bachelor of Technology in Computer Science at IIST, Indore. My work ranges from a command-line shell written in C on Linux to a full web application backed by Supabase. I want to keep strengthening my problem-solving abilities and contribute effectively to practical technology projects.</p>
+    </section>
+
+    <section id="education" class="reveal">
+      <div class="eyebrow">Education</div>
+      <h2>Where I’ve studied</h2>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="when">Expected 2028</div>
+          <h3>Bachelor of Technology (B.Tech), Computer Science</h3>
+          <p>Indore Institute of Science and Technology (IIST), Indore · Affiliated to RGPV, Bhopal</p>
+        </div>
+        <div class="t-item">
+          <div class="when">Class XII</div>
+          <h3>Higher Secondary Education</h3>
+          <p>The Lovedale Sr. Sec. School, Satna, Madhya Pradesh</p>
+        </div>
+        <div class="t-item">
+          <div class="when">Class X · 89%</div>
+          <h3>High School Education</h3>
+          <p>St. Claret School, Satna, Madhya Pradesh</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="eyebrow">Skills</div>
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div class="card skill"><h3>Programming languages</h3><div class="chips"><span class="chip m">C</span><span class="chip m">JavaScript</span></div></div>
+        <div class="card skill"><h3>Web &amp; database</h3><div class="chips"><span class="chip m">HTML</span><span class="chip m">CSS</span><span class="chip m">Supabase</span></div></div>
+        <div class="card skill"><h3>Operating systems &amp; tools</h3><div class="chips"><span class="chip m">Linux / Unix</span></div></div>
+        <div class="card skill"><h3>Coursework</h3><div class="chips"><span class="chip">Programming in C</span><span class="chip">Software Engineering</span></div></div>
+        <div class="card skill" style="grid-column:span 2"><h3>Core competencies</h3><div class="chips"><span class="chip">Communication</span><span class="chip">Teamwork</span><span class="chip">Problem Solving</span></div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="eyebrow">Projects</div>
+      <h2>Selected work</h2>
+
+      <article class="card project">
+        <div class="p-head"><h3>SmartShell – Linux-Based Custom Shell</h3><span class="p-num">01</span></div>
+        <div class="chips"><span class="chip m">C</span><span class="chip m">Linux / Unix</span></div>
+        <p>Developed a custom Linux-focused command-line shell in C supporting process creation and management, piping, I/O redirection, background jobs, job control and signal handling.</p>
+        <p>Implemented a security module to detect potentially dangerous commands such as <code>rm -rf</code>, alongside a built-in command explanation feature and a system resource and process monitoring utility.</p>
+      </article>
+
+      <article class="card project">
+        <div class="p-head"><h3>PRD Solutions – Industrial Safety &amp; EHS Management Website</h3><span class="p-num">02</span></div>
+        <div class="chips"><span class="chip m">HTML</span><span class="chip m">CSS</span><span class="chip m">JavaScript</span><span class="chip m">Supabase</span></div>
+        <p>Developed a professional industrial safety and EHS services website for PRD Solutions featuring service showcases, enquiry and quote forms, WhatsApp integration and a secure admin dashboard.</p>
+        <p>Integrated Supabase for end-to-end enquiry management, supporting status tracking, filtering and dashboard analytics with date-wise visualizations.</p>
+      </article>
+    </section>
+
+    <section id="activities" class="reveal">
+      <div class="eyebrow">Activities</div>
+      <h2>Beyond the classroom</h2>
+      <div class="clubs">
+        <div class="card club"><div class="ic">C</div><h3>CodeChef Club</h3><p>Active member, participating in coding practice and programming discussions.</p></div>
+        <div class="card club"><div class="ic">L</div><h3>Lexicon Club</h3><p>Active member, engaging in communication, vocabulary and literary activities.</p></div>
+        <div class="card club"><div class="ic">S</div><h3>Sports Club</h3><p>Active member, participating in athletics and football events.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="card contact-box">
+        <h2>Let’s get in touch</h2>
+        <p>I’m open to internships and entry-level opportunities. If you have a role or a project in mind, I’d be glad to hear from you.</p>
+        <div class="contact-links">
+          <a href="mailto:kartik772389@gmail.com">kartik772389@gmail.com</a>
+          <a href="tel:+919752476051">9752476051</a>
+          <a href="https://linkedin.com/in/kartikey-dwivedi" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>© 2026 Kartikey Dwivedi · Indore, Madhya Pradesh</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
+  },{threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+  var links=document.querySelectorAll('#nav a');
+  var so=new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(x.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)});}
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)so.observe(s)});
+})();
+</script>
+</body>
+</html>
